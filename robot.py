@@ -16,8 +16,9 @@ class Robot(commands2.TimedCommandRobot):
         wpilib.SmartDashboard.putNumber("Gyro", round(self.container.gyroscope.getGyroAngleY(), 1))
         wpilib.SmartDashboard.putData("Calibrate Gyro", commands.CalibrateGyro(
             self.container.gyroscope, self.container.drive_train))
-        wpilib.SmartDashboard.putBoolean("Pneumatics", self.container.grabber.is_closed)
-        
+        wpilib.SmartDashboard.putBoolean("Pneumatics", not self.container.grabber.is_closed)
+        wpilib.SmartDashboard.putBoolean("Enabled", self.isEnabled())
+
     def autonomousInit(self):
         self.autonomous_command.schedule()
 

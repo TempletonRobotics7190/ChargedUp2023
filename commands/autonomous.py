@@ -6,7 +6,7 @@ from commands.stabilize import Stabilize
 class AutonomousCube(commands2.SequentialCommandGroup):
     def __init__(self, drive_train: subsystems.DriveTrain):
         super().__init__(
-            # Move forward for 1 second
+            # Move for 1 second
             DriveTime(1, 0.5, 0.0, drive_train),
             # Move backward for 4 seconds
             DriveTime(4, -0.5, 0.0, drive_train),
