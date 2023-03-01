@@ -10,28 +10,28 @@ class Grabber(commands2.SubsystemBase):
             wpilib.PneumaticsModuleType.REVPH,constants.LEFT_SOLENOID_ID)
         self.is_closed = True
 
-    def open(self):
+    def open(self) -> None:
         self.is_closed = False
         self.solenoid_right.set(False)
         self.solenoid_left.set(False)
     
-    def close_half(self):
+    def close_half(self) -> None:
         self.is_closed = True
         self.solenoid_right.set(False)
         self.solenoid_left.set(True)
 
-    def close_full(self):
+    def close_full(self) -> None:
         self.is_closed = True
         self.solenoid_right.set(True)
         self.solenoid_left.set(True)
     
-    def toggle_full(self):
+    def toggle_full(self) -> None:
         if self.is_closed:
             self.open()
         else:
             self.close_full()
     
-    def toggle_half(self):
+    def toggle_half(self) -> None:
         if self.is_closed:
             self.open()
         else:

@@ -19,7 +19,3 @@ class CalibrateGyro(commands2.CommandBase):
     
     def isFinished(self) -> bool:
         return self.timer.get() > .128
-    
-
-    
-    

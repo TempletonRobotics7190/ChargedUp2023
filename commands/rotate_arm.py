@@ -1,6 +1,6 @@
 import wpilib, commands2
 
-import subsystems
+import subsystems, constants
 
 
 class RotateArm(commands2.CommandBase):
@@ -13,7 +13,7 @@ class RotateArm(commands2.CommandBase):
     :param DriveTrain drive_train: DriveTrain to execute command on
     """
 
-    def __init__(self, arm: subsystems.Arm, direction: str, 
+    def __init__(self, arm: subsystems.Arm, direction: constants.RotationDirection, 
                  time: float):
         super().__init__()
         self.arm = arm
@@ -23,7 +23,7 @@ class RotateArm(commands2.CommandBase):
         self.addRequirements(arm)
 
     def initialize(self) -> None:
-        if self.direction == "up":
+        if self.direction == constants.RotationDirection.UP:
             self.arm.rotate_up()
         else:
             self.arm.rotate_down()

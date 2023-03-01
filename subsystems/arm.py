@@ -6,25 +6,25 @@ class Arm(commands2.SubsystemBase):
         self.extension_motor = rev.CANSparkMax(5, rev.CANSparkMax.MotorType.kBrushed)
         self.rotation_motor = rev.CANSparkMax(6, rev.CANSparkMax.MotorType.kBrushed)
 
-    def extend_forward(self):
+    def extend_forward(self) -> None:
         print("Extending forward")
         self.extension_motor.set(constants.EXTEND_SPEED)
 
-    def extend_backward(self):
+    def extend_backward(self) -> None:
         print("Extending backward")
         self.extension_motor.set(-constants.EXTEND_SPEED)
 
-    def rotate_down(self):
+    def rotate_down(self) -> None:
         print("Rotating down")
         self.rotation_motor.set(constants.ROTATE_SPEED)
 
-    def rotate_up(self):
+    def rotate_up(self) -> None:
         print("Rotating up")
         self.rotation_motor.set(-constants.ROTATE_SPEED)
         
-    def stop_extending(self):
+    def stop_extending(self) -> None:
         self.extension_motor.set(0)
    
-    def stop_rotating(self):
+    def stop_rotating(self) -> None:
         self.rotation_motor.set(0)
   

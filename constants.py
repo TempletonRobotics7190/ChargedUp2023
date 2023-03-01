@@ -1,8 +1,22 @@
+from enum import Enum, auto
+
+class RotationDirection(Enum):
+    """Directions that the arm can rotate"""
+
+    UP = auto()
+    DOWN = auto()
+
+class AutonomousMode(Enum):
+    """What mode the autonomous function is in"""
+
+    STABILIZE = auto()
+    CUBE = auto()
+
 ROTATE_SPEED = .3
 EXTEND_SPEED = .4
 STABILIZE_ACCURACY_RANGE_Y = 2
 STABILIZE_ACCURACY_RANGE_Z = 3
-AUTONOMOUS_MODE = 0
+AUTONOMOUS_MODE = AutonomousMode.STABILIZE
 USE_PNEUMATICS = True
 
 RIGHT_SOLENOID_ID = 11
