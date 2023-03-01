@@ -21,6 +21,6 @@ class PlaceGamepiece(commands2.SequentialCommandGroup):
         super().__init__(
             RotateArm(arm, "down", 1),
             DriveTime(1, 0.5, 0, drive_train),
-            # commands2.FunctionalCommand(grabber.open),
+            commands2.InstantCommand(grabber.open),
             DriveTime(5, -0.5, 0, drive_train)
         )

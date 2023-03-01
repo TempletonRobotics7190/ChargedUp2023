@@ -3,8 +3,11 @@ import wpilib, wpilib.drive, commands2, constants
 class Grabber(commands2.SubsystemBase):
     def __init__(self):
         super().__init__()
-        self.solenoid_right = wpilib.Solenoid(constants.PNEUMATICS_MODULE_ID,wpilib.PneumaticsModuleType.REVPH,8)
-        self.solenoid_left = wpilib.Solenoid(constants.PNEUMATICS_MODULE_ID,wpilib.PneumaticsModuleType.REVPH,9)
+        self.solenoid_right = wpilib.Solenoid(constants.PNEUMATICS_MODULE_ID,
+            wpilib.PneumaticsModuleType.REVPH,constants.RIGHT_SOLENOID_ID)
+        
+        self.solenoid_left = wpilib.Solenoid(constants.PNEUMATICS_MODULE_ID,
+            wpilib.PneumaticsModuleType.REVPH,constants.LEFT_SOLENOID_ID)
         self.is_closed = True
 
     def open(self):
