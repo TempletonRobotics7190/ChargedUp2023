@@ -12,8 +12,8 @@ class DriveTrain(commands2.SubsystemBase):
         right_side = wpilib.MotorControllerGroup(self.front_right, self.back_right)
         self.drive = wpilib.drive.DifferentialDrive(left_side, right_side)
     
-    def move(self, forward_speed: float, rotation_speed: float):
+    def move(self, forward_speed: float, rotation_speed: float) -> None:
         self.drive.arcadeDrive(rotation_speed, forward_speed)
     
-    def stop(self):
+    def stop(self) -> None:
         self.drive.arcadeDrive(0.0, 0.0)

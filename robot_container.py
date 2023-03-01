@@ -25,7 +25,7 @@ class RobotContainer:
         )
         self.configureButtonBindings()
 
-    def configureButtonBindings(self):
+    def configureButtonBindings(self) -> None:
         command_controller = commands2.button.CommandXboxController(0)
         command_joystick = commands2.button.CommandJoystick(1)
 
@@ -45,7 +45,7 @@ class RobotContainer:
         right_top.whileHeld(commands2.StartEndCommand(self.arm.extend_forward, self.arm.stop_extending))
         right_bottom.whileHeld(commands2.StartEndCommand(self.arm.extend_backward, self.arm.stop_extending))
     
-    def getAutonomousCommand(self):
-        if constants.AUTONOMOUS_MODE == "Stabilize":
+    def getAutonomousCommand(self) -> commands2.SequentialCommandGroup:
+        if constants.AUTONOMOUS_MODE == constants.AutonomousMode.STABILIZE:
             return self.autonomous_stabilize
         return self.autonomous_cube

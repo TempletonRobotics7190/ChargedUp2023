@@ -18,9 +18,9 @@ class Arm(commands2.SubsystemBase):
     def rotate_up(self):
         self.rotation_motor.set(-constants.ROTATE_SPEED)
         
-    def stop_extending(self):
+    def stop_extending(self) -> None:
         self.extension_motor.set(0)
    
-    def stop_rotating(self):
+    def stop_rotating(self) -> None:
         self.rotation_motor.set(0)
   

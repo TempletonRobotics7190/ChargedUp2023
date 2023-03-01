@@ -8,7 +8,7 @@ class Stabilize(commands2.CommandBase):
         self.addRequirements(drive_train)
         self.gyroscope = gyroscope
 
-    def execute(self):
+    def execute(self) -> None:
         gyro_y = round(self.gyroscope.getGyroAngleY())
         gyro_z = round(self.gyroscope.getGyroAngleZ())
 
